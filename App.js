@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux'
+import store from './redux/store';
+import Navigation from './navigation/stack';
+import Toast from 'react-native-toast-message';
+// import registerNNPushToken from 'native-notify';
+
 
 export default function App() {
+  // registerNNPushToken(20768, '4Z21kOS8VwGoxdAjOJaYc7');
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <Navigation />
+      <Toast />
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
